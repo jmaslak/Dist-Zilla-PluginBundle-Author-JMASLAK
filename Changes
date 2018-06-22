@@ -5,6 +5,8 @@ Joelle Maslak <jmaslak@antelope.net>
  * Test for EOL characters
  * Test for tab characters
  * Report prerequisites
+ * Add .travis.yml, .mailmap, and CONTRIBUTING generation when these
+   files are not already there.
 
 0.001 - 2018-06-22
 Joelle Maslak <jmaslak@antelope.net>

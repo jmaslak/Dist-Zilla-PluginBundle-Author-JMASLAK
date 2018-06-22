@@ -36,7 +36,6 @@ It is somewhat equivilent to:
     [ContributorCovenant]
 
     [CopyFilesFromBuild]
-    copy = 'CODE_OF_CONDUCT.md'
     copy = 'README.pod'
 
     [Covenant]
@@ -79,6 +78,13 @@ It is somewhat equivilent to:
     [TestRelease]
     [UploadToCPAN]
 
+This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
+project, and creates a C<.travis.yml> file that will probably need to be
+edited.  If these files exist already, they will not get overwritten.
+
+It also generates a C<.mailmap> base file suitable for Joelle, if one does
+not already exists.
+
 =head1 SEE ALSO
 
 Core Dist::Zilla plugins:
@@ -102,6 +108,7 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::ExecDir;
     use Dist::Zilla::Plugin::ExtraTests;
     use Dist::Zilla::Plugin::GatherDir;
+    use Dist::Zilla::Plugin::GenerateFile::FromShareDir;
     use Dist::Zilla::Plugin::Git::Check;
     use Dist::Zilla::Plugin::Git::Commit;
     use Dist::Zilla::Plugin::Git::Push;
@@ -138,9 +145,11 @@ AUTOPLUG: {
 sub configure {
     my ($self) = (@_);
 
-    #
-    # Basically @Basic - without Readme
-    #
+    $self->add_plugins($self->_contributing_plugin());
+    $self->add_plugins($self->_copy_files_from_build());
+    $self->add_plugins($self->_mailmap_plugin());
+    $self->add_plugins($self->_travis_plugin());
+
     $self->add_plugins('AutoPrereqs');
     $self->add_plugins('Covenant');
     $self->add_plugins('ContributorCovenant');
@@ -166,7 +175,7 @@ sub configure {
     $self->add_plugins('Test::EOL');
     $self->add_plugins('Test::Kwalitee::Extra');
     $self->add_plugins('Test::NoTabs');
-    $self->add_plugins('Test::reportPrereqs');
+    $self->add_plugins('Test::ReportPrereqs');
     $self->add_plugins(
         [ 'Test::TrailingSpace' => { filename_regex => '\.($?:ini|pl|pm|t|txt)\z' } ] );
     $self->add_plugins('Test::UnusedVars');
@@ -176,17 +185,72 @@ sub configure {
     $self->add_plugins('MakeMaker');
     $self->add_plugins('Manifest');
 
-    $self->add_plugins(
-        [
-            'CopyFilesFromBuild' =>
-              { copy => [ 'CODE_OF_CONDUCT.md', 'README.pod' ] }
-        ]
-    );
     $self->add_plugins('ConfirmRelease');
     $self->add_plugins('TestRelease');
     $self->add_plugins('UploadToCPAN');
 
     return;
+}
+
+sub _copy_files_from_build {
+    my $self = shift;
+
+    my (@files) = ('README.pod');
+
+    if (!-e 'CODE_OF_CONDUCT.md') {
+        push @files, 'CODE_OF_CONDUCT.md';
+    }
+
+    return [
+        'CopyFilesFromBuild' => {
+            copy => [ @files ],
+        }
+    ];
+}
+
+# Ruthlessly stolen from DROLSKY
+sub _contributing_plugin {
+    my $self = shift;
+
+    if ( -f 'CONTRIBUTING' ) { return; }
+
+    return [
+        'GenerateFile::FromShareDir' => 'Generate CONTRIBUTING' => {
+            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename => 'CONTRIBUTING',
+            -location => 'root',
+        },
+    ];
+}
+
+sub _mailmap_plugin {
+    my $self = shift;
+
+    if ( -f '.mailmap' ) { return; }
+
+    return [
+        'GenerateFile::FromShareDir' => 'Generate .mailmap' => {
+            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename => '.mailmap',
+            -source_filename => 'mailmap',
+            -location => 'root',
+        },
+    ];
+}
+
+sub _travis_plugin {
+    my $self = shift;
+
+    if ( -f '.travis.yml' ) { return; }
+
+    return [
+        'GenerateFile::FromShareDir' => 'Generate .travis.yml' => {
+            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename => '.travis.yml',
+            -source_filename => 'travis.yml',
+            -location => 'root',
+        },
+    ];
 }
 
 __PACKAGE__->meta->make_immutable;

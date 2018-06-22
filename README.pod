@@ -25,7 +25,6 @@ It is somewhat equivilent to:
     [ContributorCovenant]
 
     [CopyFilesFromBuild]
-    copy = 'CODE_OF_CONDUCT.md'
     copy = 'README.pod'
 
     [Covenant]
@@ -67,6 +66,13 @@ It is somewhat equivilent to:
     [Test::Version]
     [TestRelease]
     [UploadToCPAN]
+
+This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
+project, and creates a C<.travis.yml> file that will probably need to be
+edited.  If these files exist already, they will not get overwritten.
+
+It also generates a C<.mailmap> base file suitable for Joelle, if one does
+not already exists.
 
 =head1 USAGE
 
