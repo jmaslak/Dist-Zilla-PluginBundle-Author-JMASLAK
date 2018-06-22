@@ -85,6 +85,7 @@ sub configure {
     # Basically @Basic - without Readme
     #
     $self->add_plugins('AutoPrereqs');
+    $self->add_plugins('Covenant');
     $self->add_plugins('ContributorCovenant');
     $self->add_plugins('ExecDir');
     $self->add_plugins('ExtraTests');
