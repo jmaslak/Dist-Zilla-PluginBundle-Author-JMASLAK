@@ -2,13 +2,11 @@ TODO
 
  * Automatically create TODO
  * Automatically create Changes
- * Automatically create CONTRIBUTING
  * Check for uncommited changes
- * Create .mailmap file
  * Don't copy perltidy.err/errors.err to distro
  * Make & config perltidy work automatically
  * Meaningful tests
  * Minimal Perl version if not set
- * Travis config
  * Validate that the most recent version of the plugin is installed
-
+ * Combine both Test::EOL and Test::TrailingSpace, and run only for
+   author.
