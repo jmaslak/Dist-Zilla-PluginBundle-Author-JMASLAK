@@ -11,4 +11,5 @@ TODO
  * Meaningful tests
  * Minimal Perl version if not set
  * Travis config
+ * Validate that the most recent version of the plugin is installed
 
