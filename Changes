@@ -1,6 +1,7 @@
 0.003 - ??????????
 Joelle Maslak <jmaslak@antelope.net>
  * Fix missing dependency
+ * Create TODO file when not present
 
 0.002 - 2018-06-22
 Joelle Maslak <jmaslak@antelope.net>

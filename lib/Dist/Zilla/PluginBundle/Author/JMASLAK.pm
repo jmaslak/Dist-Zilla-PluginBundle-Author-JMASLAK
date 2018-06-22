@@ -16,7 +16,7 @@ In your C<dist.ini> -
 
     [@Filter]
     -bundle  = @Author::JMASLAK
-    -version = 0.002
+    -version = 0.003
 
 The C<-version> option should specify the latest version required and tested
 with a given package.
@@ -27,7 +27,7 @@ This is Joelle Maslak's plugin bundle, used for her modules.  If you're not
 her, you probably want to create your own plugin module because I may modify
 this module based on her needs, breaking third party modules that use this.
 
-All of the following are in this module as of v0.002.
+All of the following are in this module as of v0.003.
 
 It is somewhat equivilent to:
 
@@ -79,8 +79,8 @@ It is somewhat equivilent to:
     [UploadToCPAN]
 
 This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
-project, and creates a C<.travis.yml> file that will probably need to be
-edited.  If these files exist already, they will not get overwritten.
+project, a C<TODO> file, and a C<.travis.yml> file that will probably need
+to be edited.  If these files exist already, they will not get overwritten.
 
 It also generates a C<.mailmap> base file suitable for Joelle, if one does
 not already exists.
@@ -149,6 +149,7 @@ sub configure {
     $self->add_plugins($self->_contributing_plugin());
     $self->add_plugins($self->_copy_files_from_build());
     $self->add_plugins($self->_mailmap_plugin());
+    $self->add_plugins($self->_todo_plugin());
     $self->add_plugins($self->_travis_plugin());
 
     $self->add_plugins('AutoPrereqs');
@@ -249,6 +250,21 @@ sub _travis_plugin {
             -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
             -filename => '.travis.yml',
             -source_filename => 'travis.yml',
+            -location => 'root',
+        },
+    ];
+}
+
+sub _todo_plugin {
+    my $self = shift;
+
+    if ( -f 'TODO' ) { return; }
+
+    return [
+        'GenerateFile::FromShareDir' => 'Generate TODO' => {
+            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename => 'TODO',
+            -source_filename => 'TODO',
             -location => 'root',
         },
     ];
