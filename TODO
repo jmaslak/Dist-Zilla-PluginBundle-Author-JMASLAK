@@ -1,0 +1,9 @@
+TODO
+
+ * Automatically create TODO
+ * Automatically create Changes
+ * Automatically create CONTRIBUTING
+ * Don't copy perltidy.err/errors.err to distro
+ * Generate dependencies for this module automatically
+ * Meaningful tests
+
