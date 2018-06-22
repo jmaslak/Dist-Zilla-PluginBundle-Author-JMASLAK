@@ -8,6 +8,8 @@
 package Dist::Zilla::PluginBundle::Author::JMASLAK;
 # ABSTRACT: JMASLAK's Plugin Bundle
 
+use v5.10;
+
 =head1 DESCRIPTION
 
 This is Joelle Maslak's plugin bundle, used for her modules.  If you're not
