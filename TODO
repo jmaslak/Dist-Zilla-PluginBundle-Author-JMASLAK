@@ -3,10 +3,12 @@ TODO
  * Automatically create TODO
  * Automatically create Changes
  * Automatically create CONTRIBUTING
+ * Check for uncommited changes
  * Create .mailmap file
  * Don't copy perltidy.err/errors.err to distro
  * Generate dependencies for this module automatically
  * Make & config perltidy work automatically
- * Tag releases on GitHub
  * Meaningful tests
+ * Minimal Perl version if not set
+ * Tag releases on GitHub
 
