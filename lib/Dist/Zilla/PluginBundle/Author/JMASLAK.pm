@@ -65,7 +65,10 @@ It is somewhat equivilent to:
     type     = pod
     filename = README.pod
 
-    [Test::Kwalitee::Extra
+    [Test::EOL]
+    [Test::Kwalitee::Extra]
+    [Test::NoTabs]
+    [Test::ReportPrereqs]
 
     [Test::TrailingSpace]
     filename_regex = '\.($?:ini|pl|pm|t|txt)\z'
@@ -115,7 +118,10 @@ AUTOPLUG {
     use Dist::Zilla::Plugin::PruneCruft;
     use Dist::Zilla::Plugin::ShareDir;
     use Dist::Zilla::Plugin::ReadmeAnyFromPod;
+    use Dist::Zilla::Plugin::Test::EOL;
     use Dist::Zilla::Plugin::Test::Kwalitee::Extra;
+    use Dist::Zilla::Plugin::Test::NoTabs;
+    use Dist::Zilla::Plugin::Test::ReportPrereqs;
     use Dist::Zilla::Plugin::Test::UnusedVars;
     use Dist::Zilla::Plugin::Test::UseAllModules;
     use Dist::Zilla::Plugin::Test::Version;
@@ -157,7 +163,10 @@ sub configure {
     $self->add_plugins('PruneCruft');
     $self->add_plugins('ShareDir');
     $self->add_plugins( [ 'ReadmeAnyFromPod' => { type => 'pod', filename => 'README.pod' } ] );
+    $self->add_plugins('Test::EOL');
     $self->add_plugins('Test::Kwalitee::Extra');
+    $self->add_plugins('Test::NoTabs');
+    $self->add_plugins('Test::reportPrereqs');
     $self->add_plugins(
         [ 'Test::TrailingSpace' => { filename_regex => '\.($?:ini|pl|pm|t|txt)\z' } ] );
     $self->add_plugins('Test::UnusedVars');

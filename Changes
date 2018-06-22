@@ -2,6 +2,9 @@
 Joelle Maslak <jmaslak@antelope.net>
  * Auto tag git releases
  * Include dependencies
+ * Test for EOL characters
+ * Test for tab characters
+ * Report prerequisites
 
 0.001 - 2018-06-22
 Joelle Maslak <jmaslak@antelope.net>

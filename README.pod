@@ -54,7 +54,10 @@ It is somewhat equivilent to:
     type     = pod
     filename = README.pod
 
-    [Test::Kwalitee::Extra
+    [Test::EOL]
+    [Test::Kwalitee::Extra]
+    [Test::NoTabs]
+    [Test::ReportPrereqs]
 
     [Test::TrailingSpace]
     filename_regex = '\.($?:ini|pl|pm|t|txt)\z'
