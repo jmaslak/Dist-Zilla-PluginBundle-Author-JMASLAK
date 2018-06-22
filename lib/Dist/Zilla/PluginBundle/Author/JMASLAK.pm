@@ -95,7 +95,7 @@ use Dist::Zilla;
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 # For auto plugins
-AUTOPLUG {
+AUTOPLUG: {
     use Dist::Zilla::Plugin::AutoPrereqs;
     use Dist::Zilla::Plugin::Covenant;
     use Dist::Zilla::Plugin::ContributorCovenant;
