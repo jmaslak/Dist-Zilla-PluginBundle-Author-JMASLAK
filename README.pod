@@ -16,6 +16,8 @@ This is Joelle Maslak's plugin bundle, used for her modules.  If you're not
 her, you probably want to create your own plugin module because I may modify
 this module based on her needs, breaking third party modules that use this.
 
+All of the following are in this module as of v0.002.
+
 It is somewhat equivilent to:
 
     [AutoPrereqs]
@@ -62,6 +64,17 @@ It is somewhat equivilent to:
     [Test::Version]
     [TestRelease]
     [UploadToCPAN]
+
+=head1 USAGE
+
+In your C<dist.ini> -
+
+    [@Filter]
+    -bundle  = @Author::JMASLAK
+    -version = 0.002
+
+The C<-version> option should specify the latest version required and tested
+with a given package.
 
 =head1 SEE ALSO
 

@@ -91,6 +91,44 @@ use Dist::Zilla;
 
 with 'Dist::Zilla::Role::PluginBundle::Easy';
 
+# For auto plugins
+AUTOPLUG {
+    use Dist::Zilla::Plugin::AutoPrereqs;
+    use Dist::Zilla::Plugin::Covenant;
+    use Dist::Zilla::Plugin::ContributorCovenant;
+    use Dist::Zilla::Plugin::ExecDir;
+    use Dist::Zilla::Plugin::ExtraTests;
+    use Dist::Zilla::Plugin::GatherDir;
+    use Dist::Zilla::Plugin::Git::Check;
+    use Dist::Zilla::Plugin::Git::Commit;
+    use Dist::Zilla::Plugin::Git::Push;
+    use Dist::Zilla::Plugin::Git::Tag;
+    use Dist::Zilla::Plugin::GitHub::Meta;
+    use Dist::Zilla::Plugin::License;
+    use Dist::Zilla::Plugin::ManifestSkip;
+    use Dist::Zilla::Plugin::MetaJSON;
+    use Dist::Zilla::Plugin::MetaProvides::Package;
+    use Dist::Zilla::Plugin::MetaYAML;
+    use Dist::Zilla::Plugin::PkgVersion;
+    use Dist::Zilla::Plugin::PodSyntaxTests;
+    use Dist::Zilla::Plugin::Podweaver;
+    use Dist::Zilla::Plugin::PruneCruft;
+    use Dist::Zilla::Plugin::ShareDir;
+    use Dist::Zilla::Plugin::ReadmeAnyFromPod;
+    use Dist::Zilla::Plugin::Test::Kwalitee::Extra;
+    use Dist::Zilla::Plugin::Test::UnusedVars;
+    use Dist::Zilla::Plugin::Test::UseAllModules;
+    use Dist::Zilla::Plugin::Test::Version;
+
+    use Dist::Zilla::Plugin::MakeMaker;
+    use Dist::Zilla::Plugin::Manifest;
+
+    use Dist::Zilla::Plugin::CopyFilesFromBuild;
+    use Dist::Zilla::Plugin::ConfirmRelease;
+    use Dist::Zilla::Plugin::TestRelease;
+    use Dist::Zilla::Plugin::UploadToCPAN;
+}
+
 sub configure {
     my ($self) = (@_);
 
