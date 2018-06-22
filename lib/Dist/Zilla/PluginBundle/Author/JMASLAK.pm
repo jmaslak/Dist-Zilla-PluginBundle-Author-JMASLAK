@@ -119,7 +119,7 @@ sub configure {
     $self->add_plugins(
         [
             'CopyFilesFromBuild' =>
-              { copy => [ 'AUTHOR_PLEDGE', 'CODE_OF_CONDUCT.md', 'README.pod' ] }
+              { copy => [ 'CODE_OF_CONDUCT.md', 'README.pod' ] }
         ]
     );
     $self->add_plugins('ConfirmRelease');
