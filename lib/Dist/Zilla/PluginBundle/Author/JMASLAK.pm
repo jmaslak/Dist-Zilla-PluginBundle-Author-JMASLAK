@@ -129,6 +129,7 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::Test::Kwalitee::Extra;
     use Dist::Zilla::Plugin::Test::NoTabs;
     use Dist::Zilla::Plugin::Test::ReportPrereqs;
+    use Dist::Zilla::Plugin::Test::TrailingSpace;
     use Dist::Zilla::Plugin::Test::UnusedVars;
     use Dist::Zilla::Plugin::Test::UseAllModules;
     use Dist::Zilla::Plugin::Test::Version;
