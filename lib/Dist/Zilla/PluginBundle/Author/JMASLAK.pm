@@ -30,6 +30,10 @@ It is somewhat equivilent to:
     [ExecDir]
     [ExtraTests]
     [GatherDir]
+    [Git::Check]
+    [Git::Commit]
+    [Git::Push]
+    [Git::Tag]
     [GitHub::Meta]
     [License]
     [Manifest]
@@ -85,6 +89,10 @@ sub configure {
     $self->add_plugins('ExecDir');
     $self->add_plugins('ExtraTests');
     $self->add_plugins('GatherDir');
+    $self->add_plugins('Git::Check');
+    $self->add_plugins('Git::Commit');
+    $self->add_plugins('Git::Push');
+    $self->add_plugins('Git::Tag');
     $self->add_plugins('GitHub::Meta');
     $self->add_plugins('License');
     $self->add_plugins('ManifestSkip');

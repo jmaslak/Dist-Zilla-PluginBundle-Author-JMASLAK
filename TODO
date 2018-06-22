@@ -10,6 +10,5 @@ TODO
  * Make & config perltidy work automatically
  * Meaningful tests
  * Minimal Perl version if not set
- * Tag releases on GitHub
  * Travis config
 

@@ -8,7 +8,7 @@ Dist::Zilla::PluginBundle::Author::JMASLAK - JMASLAK's Plugin Bundle
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 DESCRIPTION
 
@@ -30,6 +30,10 @@ It is somewhat equivilent to:
     [ExecDir]
     [ExtraTests]
     [GatherDir]
+    [Git::Check]
+    [Git::Commit]
+    [Git::Push]
+    [Git::Tag]
     [GitHub::Meta]
     [License]
     [Manifest]
