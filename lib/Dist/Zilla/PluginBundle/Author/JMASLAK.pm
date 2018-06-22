@@ -114,7 +114,7 @@ AUTOPLUG {
     use Dist::Zilla::Plugin::MetaYAML;
     use Dist::Zilla::Plugin::PkgVersion;
     use Dist::Zilla::Plugin::PodSyntaxTests;
-    use Dist::Zilla::Plugin::Podweaver;
+    use Dist::Zilla::Plugin::PodWeaver;
     use Dist::Zilla::Plugin::PruneCruft;
     use Dist::Zilla::Plugin::ShareDir;
     use Dist::Zilla::Plugin::ReadmeAnyFromPod;
