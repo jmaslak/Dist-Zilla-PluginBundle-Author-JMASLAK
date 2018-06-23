@@ -10,6 +10,9 @@ package Dist::Zilla::PluginBundle::Author::JMASLAK;
 
 use v5.10;
 
+use strict;
+use warnings;
+
 =head1 USAGE
 
 In your C<dist.ini> -
