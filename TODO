@@ -9,3 +9,4 @@ TODO
  * Validate that the most recent version of the plugin is installed
  * Combine both Test::EOL and Test::TrailingSpace, and run only for
    author.
+ * AUTHOR_PLEDGE should not refer to Joelle directly
