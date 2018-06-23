@@ -5,13 +5,12 @@
 # All Rights Reserved - See License
 #
 
-package Dist::Zilla::PluginBundle::Author::JMASLAK;
-# ABSTRACT: JMASLAK's Plugin Bundle
-
 use v5.10;
-
 use strict;
 use warnings;
+
+package Dist::Zilla::PluginBundle::Author::JMASLAK;
+# ABSTRACT: JMASLAK's Plugin Bundle
 
 =head1 USAGE
 
