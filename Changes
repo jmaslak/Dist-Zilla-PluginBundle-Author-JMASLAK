@@ -2,6 +2,7 @@
 Joelle Maslak <jmaslak@antelope.net>
  * Fix missing dependency
  * Create TODO file when not present
+ * Remove Covenant module which requires Perl 5.20
 
 0.002 - 2018-06-22
 Joelle Maslak <jmaslak@antelope.net>

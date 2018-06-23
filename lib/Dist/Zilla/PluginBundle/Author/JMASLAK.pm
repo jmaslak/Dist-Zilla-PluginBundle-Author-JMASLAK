@@ -40,7 +40,6 @@ It is somewhat equivilent to:
     [CopyFilesFromBuild]
     copy = 'README.pod'
 
-    [Covenant]
     [ExecDir]
     [ExtraTests]
     [GatherDir]
@@ -81,8 +80,10 @@ It is somewhat equivilent to:
     [UploadToCPAN]
 
 This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
-project, a C<TODO> file, and a C<.travis.yml> file that will probably need
-to be edited.  If these files exist already, they will not get overwritten.
+project, a C<TODO> file, an C<AUTHOR_PLEDGE> file that indicates CPAN admins
+can take ownership should the project become abandoned, and a C<.travis.yml>
+file that will probably need to be edited.  If these files exist already,
+they will not get overwritten.
 
 It also generates a C<.mailmap> base file suitable for Joelle, if one does
 not already exists.
@@ -105,7 +106,6 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 # For auto plugins
 AUTOPLUG: {
     use Dist::Zilla::Plugin::AutoPrereqs;
-    use Dist::Zilla::Plugin::Covenant;
     use Dist::Zilla::Plugin::ContributorCovenant;
     use Dist::Zilla::Plugin::ExecDir;
     use Dist::Zilla::Plugin::ExtraTests;
@@ -150,12 +150,12 @@ sub configure {
 
     $self->add_plugins($self->_contributing_plugin());
     $self->add_plugins($self->_copy_files_from_build());
+    $self->add_plugins($self->_covenant());
     $self->add_plugins($self->_mailmap_plugin());
     $self->add_plugins($self->_todo_plugin());
     $self->add_plugins($self->_travis_plugin());
 
     $self->add_plugins('AutoPrereqs');
-    $self->add_plugins('Covenant');
     $self->add_plugins('ContributorCovenant');
     $self->add_plugins('ExecDir');
     $self->add_plugins('ExtraTests');
@@ -222,6 +222,20 @@ sub _contributing_plugin {
         'GenerateFile::FromShareDir' => 'Generate CONTRIBUTING' => {
             -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
             -filename => 'CONTRIBUTING',
+            -location => 'root',
+        },
+    ];
+}
+
+sub _covenant_plugin {
+    my $self = shift;
+
+    if ( -f 'AUTHOR_PLEDGE' ) { return; }
+
+    return [
+        'GenerateFile::FromShareDir' => 'Generate AUTHOR_PLEDGE' => {
+            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename => 'AUTHOR_PLEDGE',
             -location => 'root',
         },
     ];
