@@ -150,7 +150,7 @@ sub configure {
 
     $self->add_plugins($self->_contributing_plugin());
     $self->add_plugins($self->_copy_files_from_build());
-    $self->add_plugins($self->_covenant());
+    $self->add_plugins($self->_covenant_plugin());
     $self->add_plugins($self->_mailmap_plugin());
     $self->add_plugins($self->_todo_plugin());
     $self->add_plugins($self->_travis_plugin());
