@@ -10,3 +10,4 @@ TODO
  * Combine both Test::EOL and Test::TrailingSpace, and run only for
    author.
  * AUTHOR_PLEDGE should not refer to Joelle directly
+ * Add critic tests ([Test::Perl::Critic])
