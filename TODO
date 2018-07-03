@@ -1,6 +1,5 @@
 TODO
 
- * Check for uncommited changes
  * Don't copy perltidy.err/errors.err to distro
  * Make & config perltidy work automatically
  * Meaningful tests
