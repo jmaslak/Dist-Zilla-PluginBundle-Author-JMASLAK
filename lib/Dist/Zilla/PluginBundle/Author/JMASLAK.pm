@@ -33,6 +33,7 @@ All of the following are in this module as of v0.003.
 
 It is somewhat equivilent to:
 
+    [NextRelease]
     [AutoPrereqs]
     [ConfirmRelease]
     [ContributorCovenant]
@@ -55,7 +56,6 @@ It is somewhat equivilent to:
     [MetaJSON]
     [MetaProvides::Package]
     [MetaYAML]
-    [NextRelease]
     [PkgVersion]
     [PodSyntaxTests]
     [PodWeaver]
@@ -108,6 +108,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 # For auto plugins
 AUTOPLUG: {
+    use Dist::Zilla::Plugin::NextRelease;
     use Dist::Zilla::Plugin::AutoPrereqs;
     use Dist::Zilla::Plugin::ContributorCovenant;
     use Dist::Zilla::Plugin::ExecDir;
@@ -124,7 +125,6 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::MetaJSON;
     use Dist::Zilla::Plugin::MetaProvides::Package;
     use Dist::Zilla::Plugin::MetaYAML;
-    use Dist::Zilla::Plugin::NextRelease;
     use Dist::Zilla::Plugin::PkgVersion;
     use Dist::Zilla::Plugin::PodSyntaxTests;
     use Dist::Zilla::Plugin::PodWeaver;
@@ -161,6 +161,7 @@ sub configure {
     $self->add_plugins( $self->_todo_plugin() );
     $self->add_plugins( $self->_travis_plugin() );
 
+    $self->add_plugins('NextRelease');
     $self->add_plugins('AutoPrereqs');
     $self->add_plugins('ContributorCovenant');
     $self->add_plugins('ExecDir');
@@ -176,7 +177,6 @@ sub configure {
     $self->add_plugins('MetaJSON');
     $self->add_plugins('MetaProvides::Package');
     $self->add_plugins('MetaYAML');
-    $self->add_plugins('NextRelease');
     $self->add_plugins('PkgVersion');
     $self->add_plugins('PodSyntaxTests');
     $self->add_plugins('PodWeaver');
