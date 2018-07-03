@@ -1,6 +1,5 @@
 TODO
 
- * Don't copy perltidy.err/errors.err to distro
  * Make & config perltidy work automatically
  * Meaningful tests
  * Minimal Perl version if not set
