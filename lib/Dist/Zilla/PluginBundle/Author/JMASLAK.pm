@@ -83,9 +83,10 @@ It is somewhat equivilent to:
 
 This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
 project, a C<Changes> file, a C<CONTRIBUTING> file, a C<TODO> file,
-an C<AUTHOR_PLEDGE> file that indicates CPAN admins can take ownership should
-the project become abandoned, and a C<.travis.yml> file that will probably
-need to be edited.  If these files exist already, they will not get overwritten.
+a C<MANIFEST_SKIP> file, an C<AUTHOR_PLEDGE> file that indicates CPAN admins
+can take ownership should the project become abandoned, and a C<.travis.yml>
+file that will probably need to be edited.  If these files exist already, they
+will not get overwritten.
 
 It also generates a C<.mailmap> base file suitable for Joelle, if one does
 not already exists.
@@ -156,6 +157,7 @@ sub configure {
     $self->add_plugins( $self->_copy_files_from_build() );
     $self->add_plugins( $self->_covenant_plugin() );
     $self->add_plugins( $self->_mailmap_plugin() );
+    $self->add_plugins( $self->_manifestskip_plugin() );
     $self->add_plugins( $self->_todo_plugin() );
     $self->add_plugins( $self->_travis_plugin() );
 
@@ -275,6 +277,20 @@ sub _mailmap_plugin {
             -filename        => '.mailmap',
             -source_filename => 'mailmap',
             -location        => 'root',
+        },
+    ];
+}
+
+sub _manifestskip_plugin {
+    my $self = shift;
+
+    if ( -f 'MANIFEST.SKIP' ) { return; }
+
+    return [
+        'GenerateFile::FromShareDir' => 'Generate MANIFEST.SKIP' => {
+            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename => 'MANIFEST.SKIP',
+            -location => 'root',
         },
     ];
 }
