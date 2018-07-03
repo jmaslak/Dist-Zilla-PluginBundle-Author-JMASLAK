@@ -1,15 +1,18 @@
-0.003 - 2018-06-23
-Joelle Maslak <jmaslak@antelope.net>
+{{$NEXT}}
+ Joelle Maslak <jmaslak@antelope.net>
  * Fix bug in naming of covenant plugin
+ * Populate change log version using placeholder
+ * Auto-increment dist.ini version
+ * Check to make sure that change log entries have been written
 
 0.003 - 2018-06-23
-Joelle Maslak <jmaslak@antelope.net>
+ Joelle Maslak <jmaslak@antelope.net>
  * Fix missing dependency
  * Create TODO file when not present
  * Remove Covenant module which requires Perl 5.20
 
 0.002 - 2018-06-22
-Joelle Maslak <jmaslak@antelope.net>
+ Joelle Maslak <jmaslak@antelope.net>
  * Auto tag git releases
  * Include dependencies
  * Test for EOL characters
@@ -19,6 +22,6 @@ Joelle Maslak <jmaslak@antelope.net>
    files are not already there.
 
 0.001 - 2018-06-22
-Joelle Maslak <jmaslak@antelope.net>
+ Joelle Maslak <jmaslak@antelope.net>
  * Initial Version
 

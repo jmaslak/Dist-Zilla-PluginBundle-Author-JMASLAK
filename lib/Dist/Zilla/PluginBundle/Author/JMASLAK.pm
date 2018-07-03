@@ -55,6 +55,7 @@ It is somewhat equivilent to:
     [MetaJSON]
     [MetaProvides::Package]
     [MetaYAML]
+    [NextRelease]
     [PkgVersion]
     [PodSyntaxTests]
     [PodWeaver]
@@ -65,6 +66,7 @@ It is somewhat equivilent to:
     type     = pod
     filename = README.pod
 
+    [Test::ChangesHasContent]
     [Test::EOL]
     [Test::Kwalitee::Extra]
     [Test::NoTabs]
@@ -121,12 +123,14 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::MetaJSON;
     use Dist::Zilla::Plugin::MetaProvides::Package;
     use Dist::Zilla::Plugin::MetaYAML;
+    use Dist::Zilla::Plugin::NextRelease;
     use Dist::Zilla::Plugin::PkgVersion;
     use Dist::Zilla::Plugin::PodSyntaxTests;
     use Dist::Zilla::Plugin::PodWeaver;
     use Dist::Zilla::Plugin::PruneCruft;
     use Dist::Zilla::Plugin::ShareDir;
     use Dist::Zilla::Plugin::ReadmeAnyFromPod;
+    use Dist::Zilla::Plugin::Test::ChangesHasContent;
     use Dist::Zilla::Plugin::Test::EOL;
     use Dist::Zilla::Plugin::Test::Kwalitee::Extra;
     use Dist::Zilla::Plugin::Test::NoTabs;
@@ -170,12 +174,14 @@ sub configure {
     $self->add_plugins('MetaJSON');
     $self->add_plugins('MetaProvides::Package');
     $self->add_plugins('MetaYAML');
+    $self->add_plugins('NextRelease');
     $self->add_plugins('PkgVersion');
     $self->add_plugins('PodSyntaxTests');
     $self->add_plugins('PodWeaver');
     $self->add_plugins('PruneCruft');
     $self->add_plugins('ShareDir');
     $self->add_plugins( [ 'ReadmeAnyFromPod' => { type => 'pod', filename => 'README.pod' } ] );
+    $self->add_plugins('Test::ChangesHasContent');
     $self->add_plugins('Test::EOL');
     $self->add_plugins('Test::Kwalitee::Extra');
     $self->add_plugins('Test::NoTabs');

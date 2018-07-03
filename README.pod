@@ -42,6 +42,7 @@ It is somewhat equivilent to:
     [MetaJSON]
     [MetaProvides::Package]
     [MetaYAML]
+    [NextRelease]
     [PkgVersion]
     [PodSyntaxTests]
     [PodWeaver]
@@ -52,6 +53,7 @@ It is somewhat equivilent to:
     type     = pod
     filename = README.pod
 
+    [Test::ChangesHasContent]
     [Test::EOL]
     [Test::Kwalitee::Extra]
     [Test::NoTabs]
