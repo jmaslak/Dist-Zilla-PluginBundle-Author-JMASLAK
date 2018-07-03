@@ -6,6 +6,7 @@
  * Check to make sure that change log entries have been written
  * Create Changes file if it (or a couple others with similar names)
    doesn't exist already
+ * Check in README.pod automatically
  * Prune perltidy.ERR and errors.err files
 
 0.003 - 2018-06-23

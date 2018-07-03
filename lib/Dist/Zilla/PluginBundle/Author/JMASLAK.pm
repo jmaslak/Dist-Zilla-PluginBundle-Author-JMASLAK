@@ -44,10 +44,6 @@ It is somewhat equivilent to:
     [ExecDir]
     [ExtraTests]
     [GatherDir]
-    [Git::Check]
-    [Git::Commit]
-    [Git::Push]
-    [Git::Tag]
     [GitHub::Meta]
     [License]
     [Manifest]
@@ -80,6 +76,16 @@ It is somewhat equivilent to:
     [Test::Version]
     [TestRelease]
     [UploadToCPAN]
+
+    [Git::Check]
+
+    [Git::Commit]
+    allow_dirty = dist.ini
+    allow_dirty = Changes
+    allow_dirty = README.pod
+
+    [Git::Push]
+    [Git::Tag]
 
 This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
 project, a C<Changes> file, a C<CONTRIBUTING> file, a C<TODO> file,
@@ -115,10 +121,6 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::ExtraTests;
     use Dist::Zilla::Plugin::GatherDir;
     use Dist::Zilla::Plugin::GenerateFile::FromShareDir;
-    use Dist::Zilla::Plugin::Git::Check;
-    use Dist::Zilla::Plugin::Git::Commit;
-    use Dist::Zilla::Plugin::Git::Push;
-    use Dist::Zilla::Plugin::Git::Tag;
     use Dist::Zilla::Plugin::GitHub::Meta;
     use Dist::Zilla::Plugin::License;
     use Dist::Zilla::Plugin::ManifestSkip;
@@ -148,6 +150,11 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::ConfirmRelease;
     use Dist::Zilla::Plugin::TestRelease;
     use Dist::Zilla::Plugin::UploadToCPAN;
+
+    use Dist::Zilla::Plugin::Git::Check;
+    use Dist::Zilla::Plugin::Git::Commit;
+    use Dist::Zilla::Plugin::Git::Push;
+    use Dist::Zilla::Plugin::Git::Tag;
 }
 
 sub configure {
@@ -167,10 +174,6 @@ sub configure {
     $self->add_plugins('ExecDir');
     $self->add_plugins('ExtraTests');
     $self->add_plugins('GatherDir');
-    $self->add_plugins('Git::Check');
-    $self->add_plugins('Git::Commit');
-    $self->add_plugins('Git::Push');
-    $self->add_plugins('Git::Tag');
     $self->add_plugins('GitHub::Meta');
     $self->add_plugins('License');
     $self->add_plugins('ManifestSkip');
@@ -201,6 +204,12 @@ sub configure {
     $self->add_plugins('TestRelease');
     $self->add_plugins('UploadToCPAN');
 
+    $self->add_plugins('Git::Check');
+    $self->add_plugins(
+        'Git::Commit', => { allow_dirty => [ 'dist.ini', _changes_file(), 'README.pod' ] } );
+    $self->add_plugins('Git::Push');
+    $self->add_plugins('Git::Tag');
+
     return;
 }
 
@@ -218,6 +227,15 @@ sub _copy_files_from_build {
             copy => [@files],
         }
     ];
+}
+
+sub _changes_file {
+    if ( -f 'Changes' )   { return 'Changes'; }
+    if ( -f 'CHANGES' )   { return 'CHANGES'; }
+    if ( -f 'ChangeLog' ) { return 'ChangeLog'; }
+    if ( -f 'CHANGELOG' ) { return 'CHANGELOG'; }
+
+    return 'Changes';
 }
 
 sub _changes_plugin {
