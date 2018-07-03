@@ -152,12 +152,12 @@ AUTOPLUG: {
 sub configure {
     my ($self) = (@_);
 
-    $self->add_plugins($self->_contributing_plugin());
-    $self->add_plugins($self->_copy_files_from_build());
-    $self->add_plugins($self->_covenant_plugin());
-    $self->add_plugins($self->_mailmap_plugin());
-    $self->add_plugins($self->_todo_plugin());
-    $self->add_plugins($self->_travis_plugin());
+    $self->add_plugins( $self->_contributing_plugin() );
+    $self->add_plugins( $self->_copy_files_from_build() );
+    $self->add_plugins( $self->_covenant_plugin() );
+    $self->add_plugins( $self->_mailmap_plugin() );
+    $self->add_plugins( $self->_todo_plugin() );
+    $self->add_plugins( $self->_travis_plugin() );
 
     $self->add_plugins('AutoPrereqs');
     $self->add_plugins('ContributorCovenant');
@@ -207,13 +207,13 @@ sub _copy_files_from_build {
 
     my (@files) = ('README.pod');
 
-    if (!-e 'CODE_OF_CONDUCT.md') {
+    if ( !-e 'CODE_OF_CONDUCT.md' ) {
         push @files, 'CODE_OF_CONDUCT.md';
     }
 
     return [
         'CopyFilesFromBuild' => {
-            copy => [ @files ],
+            copy => [@files],
         }
     ];
 }
@@ -271,10 +271,10 @@ sub _mailmap_plugin {
 
     return [
         'GenerateFile::FromShareDir' => 'Generate .mailmap' => {
-            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
-            -filename => '.mailmap',
+            -dist            => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename        => '.mailmap',
             -source_filename => 'mailmap',
-            -location => 'root',
+            -location        => 'root',
         },
     ];
 }
@@ -286,10 +286,10 @@ sub _travis_plugin {
 
     return [
         'GenerateFile::FromShareDir' => 'Generate .travis.yml' => {
-            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
-            -filename => '.travis.yml',
+            -dist            => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename        => '.travis.yml',
             -source_filename => 'travis.yml',
-            -location => 'root',
+            -location        => 'root',
         },
     ];
 }
@@ -301,10 +301,10 @@ sub _todo_plugin {
 
     return [
         'GenerateFile::FromShareDir' => 'Generate TODO' => {
-            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
-            -filename => 'TODO',
+            -dist            => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename        => 'TODO',
             -source_filename => 'TODO',
-            -location => 'root',
+            -location        => 'root',
         },
     ];
 }
