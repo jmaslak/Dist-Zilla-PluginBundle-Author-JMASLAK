@@ -213,9 +213,9 @@ sub configure {
     $self->add_plugins('UploadToCPAN');
 
     $self->add_plugins(
-        'Git::Check', => { allow_dirty => [ 'dist.ini', _changes_file(), 'README.pod' ] } );
+        [ 'Git::Check', => { allow_dirty => [ 'dist.ini', _changes_file(), 'README.pod' ] } ] );
     $self->add_plugins(
-        'Git::Commit', => { allow_dirty => [ 'dist.ini', _changes_file(), 'README.pod' ] } );
+        [ 'Git::Commit', => { allow_dirty => [ 'dist.ini', _changes_file(), 'README.pod' ] } ] );
     $self->add_plugins('Git::Push');
     $self->add_plugins('Git::Tag');
 
