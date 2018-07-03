@@ -1,4 +1,6 @@
 {{$NEXT}}
+
+0.005     2018-07-02 19:16:03-06:00 America/Denver
  Joelle Maslak <jmaslak@antelope.net>
  * Fix bug in naming of covenant plugin
  * Populate change log version using placeholder

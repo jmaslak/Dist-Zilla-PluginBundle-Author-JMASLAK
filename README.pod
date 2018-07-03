@@ -1,6 +1,5 @@
 =pod
 
-
 =encoding UTF-8
 
 =head1 NAME
@@ -9,7 +8,7 @@ Dist::Zilla::PluginBundle::Author::JMASLAK - JMASLAK's Plugin Bundle
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 DESCRIPTION
 
@@ -21,6 +20,7 @@ All of the following are in this module as of v0.003.
 
 It is somewhat equivilent to:
 
+    [NextRelease]
     [AutoPrereqs]
     [ConfirmRelease]
     [ContributorCovenant]
@@ -31,10 +31,6 @@ It is somewhat equivilent to:
     [ExecDir]
     [ExtraTests]
     [GatherDir]
-    [Git::Check]
-    [Git::Commit]
-    [Git::Push]
-    [Git::Tag]
     [GitHub::Meta]
     [License]
     [Manifest]
@@ -43,7 +39,6 @@ It is somewhat equivilent to:
     [MetaJSON]
     [MetaProvides::Package]
     [MetaYAML]
-    [NextRelease]
     [PkgVersion]
     [PodSyntaxTests]
     [PodWeaver]
@@ -68,6 +63,19 @@ It is somewhat equivilent to:
     [Test::Version]
     [TestRelease]
     [UploadToCPAN]
+
+    [Git::Check]
+    allow_dirty = dist.ini
+    allow_dirty = Changes
+    allow_dirty = README.pod
+
+    [Git::Commit]
+    allow_dirty = dist.ini
+    allow_dirty = Changes
+    allow_dirty = README.pod
+
+    [Git::Push]
+    [Git::Tag]
 
 This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
 project, a C<Changes> file, a C<CONTRIBUTING> file, a C<TODO> file,
