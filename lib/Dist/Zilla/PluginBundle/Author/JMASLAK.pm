@@ -78,6 +78,9 @@ It is somewhat equivilent to:
     [UploadToCPAN]
 
     [Git::Check]
+    allow_dirty = dist.ini
+    allow_dirty = Changes
+    allow_dirty = README.pod
 
     [Git::Commit]
     allow_dirty = dist.ini
@@ -204,7 +207,8 @@ sub configure {
     $self->add_plugins('TestRelease');
     $self->add_plugins('UploadToCPAN');
 
-    $self->add_plugins('Git::Check');
+    $self->add_plugins(
+        'Git::Check', => { allow_dirty => [ 'dist.ini', _changes_file(), 'README.pod' ] } );
     $self->add_plugins(
         'Git::Commit', => { allow_dirty => [ 'dist.ini', _changes_file(), 'README.pod' ] } );
     $self->add_plugins('Git::Push');
@@ -241,10 +245,7 @@ sub _changes_file {
 sub _changes_plugin {
     my $self = shift;
 
-    if ( -f 'Changes' )   { return; }
-    if ( -f 'CHANGES' )   { return; }
-    if ( -f 'ChangeLog' ) { return; }
-    if ( -f 'CHANGELOG' ) { return; }
+    if ( -f _changes_file() ) { return; }
 
     return [
         'GenerateFile::FromShareDir' => 'Generate Changes' => {
