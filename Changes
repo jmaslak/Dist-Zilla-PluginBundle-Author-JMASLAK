@@ -4,6 +4,8 @@
  * Populate change log version using placeholder
  * Auto-increment dist.ini version
  * Check to make sure that change log entries have been written
+ * Create Changes file if it (or a couple others with similar names)
+   doesn't exist already
 
 0.003 - 2018-06-23
  Joelle Maslak <jmaslak@antelope.net>

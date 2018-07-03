@@ -82,10 +82,10 @@ It is somewhat equivilent to:
     [UploadToCPAN]
 
 This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
-project, a C<TODO> file, an C<AUTHOR_PLEDGE> file that indicates CPAN admins
-can take ownership should the project become abandoned, and a C<.travis.yml>
-file that will probably need to be edited.  If these files exist already,
-they will not get overwritten.
+project, a C<Changes> file, a C<CONTRIBUTING> file, a C<TODO> file,
+an C<AUTHOR_PLEDGE> file that indicates CPAN admins can take ownership should
+the project become abandoned, and a C<.travis.yml> file that will probably
+need to be edited.  If these files exist already, they will not get overwritten.
 
 It also generates a C<.mailmap> base file suitable for Joelle, if one does
 not already exists.
@@ -215,6 +215,23 @@ sub _copy_files_from_build {
         'CopyFilesFromBuild' => {
             copy => [ @files ],
         }
+    ];
+}
+
+sub _changes_plugin {
+    my $self = shift;
+
+    if ( -f 'Changes' )   { return; }
+    if ( -f 'CHANGES' )   { return; }
+    if ( -f 'ChangeLog' ) { return; }
+    if ( -f 'CHANGELOG' ) { return; }
+
+    return [
+        'GenerateFile::FromShareDir' => 'Generate Changes' => {
+            -dist     => ( __PACKAGE__ =~ s/::/-/gr ),
+            -filename => 'Changes',
+            -location => 'root',
+        },
     ];
 }
 
