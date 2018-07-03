@@ -10,4 +10,6 @@ TODO
  * Add critic tests ([Test::Perl::Critic])
  * Allow parameters for the AutoPrereq plugin (see File::ByLine for use
    case)
+ * Allow major version number to be passed (see Parallel::WorkUnit for
+   use case)
 
