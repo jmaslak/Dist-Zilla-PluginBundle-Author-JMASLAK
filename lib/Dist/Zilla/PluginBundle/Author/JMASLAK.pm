@@ -29,10 +29,11 @@ This is Joelle Maslak's plugin bundle, used for her modules.  If you're not
 her, you probably want to create your own plugin module because I may modify
 this module based on her needs, breaking third party modules that use this.
 
-All of the following are in this module as of v0.003.
+All of the following are in this module as of v1.181840.
 
 It is somewhat equivilent to:
 
+    [AutoVersion]
     [NextRelease]
     [AutoPrereqs]
     [ConfirmRelease]
@@ -90,6 +91,8 @@ It is somewhat equivilent to:
     [Git::Push]
     [Git::Tag]
 
+This automatically numbers releases.
+
 This creates a C<CODE_OF_CONDUCT.md> from the awesome Contributor Covenant
 project, a C<Changes> file, a C<CONTRIBUTING> file, a C<TODO> file,
 a C<MANIFEST_SKIP> file, an C<AUTHOR_PLEDGE> file that indicates CPAN admins
@@ -117,6 +120,7 @@ with 'Dist::Zilla::Role::PluginBundle::Easy';
 
 # For auto plugins
 AUTOPLUG: {
+    use Dist::Zilla::Plugin::AutoVersion;
     use Dist::Zilla::Plugin::NextRelease;
     use Dist::Zilla::Plugin::AutoPrereqs;
     use Dist::Zilla::Plugin::ContributorCovenant;
@@ -171,6 +175,7 @@ sub configure {
     $self->add_plugins( $self->_todo_plugin() );
     $self->add_plugins( $self->_travis_plugin() );
 
+    $self->add_plugins('AutoVersion');
     $self->add_plugins('NextRelease');
     $self->add_plugins('AutoPrereqs');
     $self->add_plugins('ContributorCovenant');
