@@ -1,15 +1,12 @@
 {{$NEXT}}
 
 1.181841  2018-07-02 19:43:39-06:00 America/Denver
- Joelle Maslak <jmaslak@antelope.net>
  * Fix calling error for add_plugin
 
 1.181840  2018-07-02 19:28:05-06:00 America/Denver
- Joelle Maslak <jmaslak@antelope.net>
  * Auto-number releases
 
 0.005     2018-07-02 19:16:03-06:00 America/Denver
- Joelle Maslak <jmaslak@antelope.net>
  * Fix bug in naming of covenant plugin
  * Populate change log version using placeholder
  * Auto-increment dist.ini version
@@ -20,13 +17,11 @@
  * Prune perltidy.ERR and errors.err files
 
 0.003 - 2018-06-23
- Joelle Maslak <jmaslak@antelope.net>
  * Fix missing dependency
  * Create TODO file when not present
  * Remove Covenant module which requires Perl 5.20
 
 0.002 - 2018-06-22
- Joelle Maslak <jmaslak@antelope.net>
  * Auto tag git releases
  * Include dependencies
  * Test for EOL characters
@@ -36,6 +31,5 @@
    files are not already there.
 
 0.001 - 2018-06-22
- Joelle Maslak <jmaslak@antelope.net>
  * Initial Version
 
