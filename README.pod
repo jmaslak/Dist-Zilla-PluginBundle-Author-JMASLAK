@@ -8,7 +8,7 @@ Dist::Zilla::PluginBundle::Author::JMASLAK - JMASLAK's Plugin Bundle
 
 =head1 VERSION
 
-version 1.182070
+version 1.200230
 
 =head1 DESCRIPTION
 

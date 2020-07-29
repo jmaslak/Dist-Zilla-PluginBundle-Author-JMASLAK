@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #
-# Copyright (C) 2018 Joelle Maslak
+# Copyright (C) 2018,2020 Joelle Maslak
 # All Rights Reserved - See License
 #
 
@@ -65,7 +65,7 @@ It is somewhat equivilent to:
 
     [Test::ChangesHasContent]
     [Test::EOL]
-    [Test::Kwalitee::Extra]
+    [Test::Kwalitee]
     [Test::NoTabs]
     [Test::ReportPrereqs]
 
@@ -142,7 +142,7 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::ReadmeAnyFromPod;
     use Dist::Zilla::Plugin::Test::ChangesHasContent;
     use Dist::Zilla::Plugin::Test::EOL;
-    use Dist::Zilla::Plugin::Test::Kwalitee::Extra;
+    use Dist::Zilla::Plugin::Test::Kwalitee;
     use Dist::Zilla::Plugin::Test::NoTabs;
     use Dist::Zilla::Plugin::Test::ReportPrereqs;
     use Dist::Zilla::Plugin::Test::TrailingSpace;
@@ -196,7 +196,7 @@ sub configure {
     $self->add_plugins( [ 'ReadmeAnyFromPod' => { type => 'pod', filename => 'README.pod' } ] );
     $self->add_plugins('Test::ChangesHasContent');
     $self->add_plugins('Test::EOL');
-    $self->add_plugins('Test::Kwalitee::Extra');
+    $self->add_plugins('Test::Kwalitee');
     $self->add_plugins('Test::NoTabs');
     $self->add_plugins('Test::ReportPrereqs');
     $self->add_plugins(

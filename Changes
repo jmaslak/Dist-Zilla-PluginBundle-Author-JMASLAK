@@ -1,4 +1,5 @@
 {{$NEXT}}
+ * Remove Test::Kwalitee::Extra, replace with Test::Kwalitee
 
 1.182070  2018-07-25 22:21:03-06:00 America/Denver
  * Update travis config to test 5.28 by default
