@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 
 #
-# Copyright (C) 2018,2020 Joelle Maslak
+# Copyright (C) 2018,2020-2021 Joelle Maslak
 # All Rights Reserved - See License
 #
 
@@ -60,8 +60,8 @@ It is somewhat equivilent to:
     [ShareDir]
 
     [ReadmeAnyFromPod]
-    type     = pod
-    filename = README.pod
+    type     = markdown
+    filename = README.md
 
     [Test::ChangesHasContent]
     [Test::EOL]
