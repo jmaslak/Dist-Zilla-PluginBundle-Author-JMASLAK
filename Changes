@@ -1,4 +1,5 @@
 {{$NEXT}}
+ * Remove Test::UnusedVars due to 5.38 compatibility issues
 
 1.210880  2021-03-29 16:50:31+00:00 UTC
  * Convert README.pod to README.md

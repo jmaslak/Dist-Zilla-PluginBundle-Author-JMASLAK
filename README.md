@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::JMASLAK - JMASLAK's Plugin Bundle
 
 # VERSION
 
-version 1.210880
+version 1.231930
 
 # DESCRIPTION
 
