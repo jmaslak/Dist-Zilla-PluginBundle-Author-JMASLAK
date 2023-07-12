@@ -1,4 +1,5 @@
 {{$NEXT}}
+ * Additional work to handle unused vars not functioning on 5.38
 
 1.231930  2023-07-12 11:45:15-04:00 America/Toronto
  * Remove Test::UnusedVars due to 5.38 compatibility issues

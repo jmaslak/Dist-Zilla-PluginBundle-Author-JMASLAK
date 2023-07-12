@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::JMASLAK - JMASLAK's Plugin Bundle
 
 # VERSION
 
-version 1.231930
+version 1.231931
 
 # DESCRIPTION
 
@@ -55,7 +55,6 @@ It is somewhat equivilent to:
     [Test::TrailingSpace]
     filename_regex = '\.($?:ini|pl|pm|t|txt)\z'
 
-    [Test::UnusedVars]
     [Test::UseAllModules]
     [Test::Version]
     [TestRelease]

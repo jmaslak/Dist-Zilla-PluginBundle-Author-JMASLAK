@@ -72,7 +72,6 @@ It is somewhat equivilent to:
     [Test::TrailingSpace]
     filename_regex = '\.($?:ini|pl|pm|t|txt)\z'
 
-    [Test::UnusedVars]
     [Test::UseAllModules]
     [Test::Version]
     [TestRelease]
@@ -146,7 +145,6 @@ AUTOPLUG: {
     use Dist::Zilla::Plugin::Test::NoTabs;
     use Dist::Zilla::Plugin::Test::ReportPrereqs;
     use Dist::Zilla::Plugin::Test::TrailingSpace;
-    use Dist::Zilla::Plugin::Test::UnusedVars;
     use Dist::Zilla::Plugin::Test::UseAllModules;
     use Dist::Zilla::Plugin::Test::Version;
 
@@ -201,7 +199,6 @@ sub configure {
     $self->add_plugins('Test::ReportPrereqs');
     $self->add_plugins(
         [ 'Test::TrailingSpace' => { filename_regex => '\.($?:ini|pl|pm|t|txt)\z' } ] );
-    $self->add_plugins('Test::UnusedVars');
     $self->add_plugins('Test::UseAllModules');
     $self->add_plugins('Test::Version');
 
